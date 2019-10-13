@@ -17,9 +17,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, and deploy
+    - name: NPM Install and Build
       run: |
         npm install
-        npm run deploy
+        npm run-script build
+    - name: GitHub Pages Deploy
+      uses: maxheld83/ghpages@v0.2.1
       env:
         CI: true
