@@ -3,22 +3,24 @@
   "version": "2.1.0",
   "description": "Application for studying hiragana & katakana characters.",
   "main": "index.js",
+  "homepage": "http://kevinta893.github.io/kanaquiz",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --mode development --host 0.0.0.0 --config webpack.config.js",
-    "mobile": "webpack-dev-server --open --mode development --host 0.0.0.0 --public 192.168.1.8:8080",
-    "build": "webpack --mode production --config webpack.config.prod.js"
+    "start": "webpack-dev-server --open --mode development --host 127.0.0.1 --config webpack.config.js",
+    "mobile": "webpack-dev-server --open --mode development --host 127.0.0.1 --public 192.168.1.8:8080",
+    "build": "webpack --mode production --config webpack.config.prod.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anzzstuff/kanaquiz.git"
+    "url": "git+https://github.com/kevinta893/kanaquiz.git"
   },
-  "author": "Antti Pilto",
+  "author": "Antti Pilto (original)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anzzstuff/kanaquiz/issues"
+    "url": "https://github.com/kevinta893/kanaquiz/issues"
   },
-  "homepage": "https://github.com/anzzstuff/kanaquiz#readme",
   "browserslist": [
     ">0.25%",
     "not dead"
@@ -32,6 +34,7 @@
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "postcss": "^7.0.5",
     "postcss-loader": "^3.0.0",

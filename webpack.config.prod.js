@@ -1,17 +1,22 @@
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   context: __dirname,
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: './dist/',
+    publicPath: './',
     filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   plugins: [
+	new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html'
+    }),
     new SWPrecacheWebpackPlugin( {
       cacheId: 'kana-quiz',
       filename: 'sw.js',
